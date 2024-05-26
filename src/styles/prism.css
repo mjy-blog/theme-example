@@ -1,0 +1,7 @@
+body:not(.dark) {
+  @nested-import "../../submodules/prism-themes/themes/prism-one-light.css";
+}
+
+body.dark {
+  @nested-import "../../submodules/prism-themes/themes/prism-one-dark.css";
+}

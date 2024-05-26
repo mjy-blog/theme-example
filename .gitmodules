@@ -1,0 +1,3 @@
+[submodule "prism-themes"]
+	path = submodules/prism-themes
+	url = https://github.com/PrismJS/prism-themes.git
