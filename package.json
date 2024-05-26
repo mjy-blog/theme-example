@@ -2,6 +2,9 @@
   "name": "@this-project/articles",
   "private": true,
   "dependencies": {
+    "@-ft/mode-next": "^0.1.6",
+    "@giscus/react": "^3.0.0",
+    "@types/node": "^20.12.12",
     "@types/react": "^18.3.3",
     "autoprefixer": "^10.4.19",
     "cpy-cli": "^5.0.0",
