@@ -11,7 +11,8 @@ export function PostAttributes({ attributes }: PostAttributesProps) {
   return (
     <div className="flex gap-2 text-gray-500">
       <span>{useDateTimeRepresentation(new Date(attributes.createTime))}</span>
-      {attributes.createTime !== attributes.updateTime && (
+      {new Date(attributes.createTime).getTime() !==
+        new Date(attributes.updateTime).getTime() && (
         <>
           <span>|</span>
           <span>
