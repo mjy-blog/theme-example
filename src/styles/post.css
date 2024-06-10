@@ -1,13 +1,25 @@
 main.post-main {
+  background: #fff;
+
+  .dark & {
+    background: #000;
+  }
+
   h1,
   h2,
   h3,
   p,
   i,
-  a {
+  a,
+  ul,
+  ol {
     color: rgba(0, 0, 0, 0.84);
     text-rendering: optimizeLegibility;
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+
+    .dark & {
+      color: rgba(255, 255, 255, 0.84);
+    }
   }
 
   h1 {
@@ -27,7 +39,7 @@ main.post-main {
   }
 
   h3 {
-    font-size: 21px;
+    font-size: 23px;
     font-weight: 700;
   }
 
@@ -46,5 +58,39 @@ main.post-main {
 
   ::selection {
     background-color: lavender;
+
+    .dark & {
+      background-color: darkblue;
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    font-size: 21px;
+    letter-spacing: -0.03px;
+    line-height: 1.58;
+  }
+
+  ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+    font-size: 21px;
+    letter-spacing: -0.03px;
+    line-height: 1.58;
+  }
+
+  ul ul,
+  ol ul {
+    list-style-type: circle;
+    list-style-position: inside;
+    margin-left: 15px;
+  }
+
+  ol ol,
+  ul ol {
+    list-style-type: lower-latin;
+    list-style-position: inside;
+    margin-left: 15px;
   }
 }
