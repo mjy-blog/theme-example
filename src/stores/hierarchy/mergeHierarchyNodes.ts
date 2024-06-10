@@ -1,3 +1,5 @@
+"use client";
+
 import { HierarchyNode } from "./HierarchyState";
 
 export function mergeHierarchyNodes(

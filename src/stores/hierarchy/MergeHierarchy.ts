@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect } from "react";
 import { HierarchyState } from "./HierarchyState";
 import { useHierarchy } from "./useHierarchy";
