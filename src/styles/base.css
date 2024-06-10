@@ -1,0 +1,16 @@
+html {
+  background: #fff;
+
+  &.dark {
+    background: #000;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  font-size: 18px;
+  font-family: 'Noto Sans KR', sans-serif;
+}

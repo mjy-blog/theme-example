@@ -1,3 +1,6 @@
+@charset "utf-8";
+
+@import "./base.css";
 @import "./prism.css";
 @import "./tailwind.css";
 @import "./post.css";
