@@ -1,8 +1,8 @@
-import { ComponentType } from 'react';
-import { Comment } from './components/Comment';
-import { PostAttributes } from './components/PostAttributes';
-import { Breadcrumb } from './components/breadcrumb/Breadcrumb';
-import { ArticleAttributes } from './types/ArticleAttributes';
+import { ComponentType } from "react";
+import { Comment } from "./components/Comment";
+import { PostAttributes } from "./components/PostAttributes";
+import { Breadcrumb } from "./components/breadcrumb/Breadcrumb";
+import { ArticleAttributes } from "./types/ArticleAttributes";
 
 export interface PostPageProps {
   attributes: ArticleAttributes;
@@ -12,12 +12,14 @@ export interface PostPageProps {
 
 export function PostPage({ attributes, MDXContent, slug }: PostPageProps) {
   return (
-    <main className="post-main mx-auto max-w-[740px]">
-      <Breadcrumb categories={attributes.categories} />
-      <h1>{attributes.title}</h1>
-      <PostAttributes attributes={attributes} />
-      <MDXContent />
-      <Comment slug={slug} />
-    </main>
+    <div className="desktop:flex desktop:gap-12">
+      <main className="post-main mx-auto max-w-[740px]">
+        <Breadcrumb categories={attributes.categories} />
+        <h1>{attributes.title}</h1>
+        <PostAttributes attributes={attributes} />
+        <MDXContent />
+        <Comment slug={slug} />
+      </main>
+    </div>
   );
 }
