@@ -1,6 +1,7 @@
-import { PropsWithChildren } from "react";
-import { ThemeModeButton } from "./components/ThemeModeButton";
-import { HierarchyProvider } from "./stores/hierarchy/HierarchyProvider";
+import { PropsWithChildren } from 'react';
+
+import { ThemeModeButton } from './components/ThemeModeButton';
+import { HierarchyProvider } from './stores/hierarchy/HierarchyProvider';
 
 export function RootLayout({ children }: PropsWithChildren) {
   return (

@@ -1,1 +1,1 @@
-import "./build/style.css";
+import './build/style.css';

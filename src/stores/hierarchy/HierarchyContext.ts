@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { createContext } from "react";
-import { StoreApi } from "zustand";
+import { createContext } from 'react';
+import { StoreApi } from 'zustand';
 
-import { HierarchyStore } from "./HierarchyStore";
+import { HierarchyStore } from './HierarchyStore';
 
 export const HierarchyContext = createContext<StoreApi<HierarchyStore> | null>(
-  null
+  null,
 );

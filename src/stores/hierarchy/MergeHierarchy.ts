@@ -1,8 +1,9 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
-import { HierarchyState } from "./HierarchyState";
-import { useHierarchy } from "./useHierarchy";
+import { useEffect } from 'react';
+
+import { HierarchyState } from './HierarchyState';
+import { useHierarchy } from './useHierarchy';
 
 export interface MergeHierarchyProps {
   toMerge: HierarchyState;

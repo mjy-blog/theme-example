@@ -1,4 +1,5 @@
 import { ComponentType } from 'react';
+
 import { Comment } from './components/Comment';
 import { PostAttributes } from './components/PostAttributes';
 import { Breadcrumb } from './components/breadcrumb/Breadcrumb';

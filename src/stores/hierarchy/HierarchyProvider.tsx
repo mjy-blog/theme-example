@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { PropsWithChildren, useRef } from "react";
-import { StoreApi } from "zustand";
+import { PropsWithChildren, useRef } from 'react';
+import { StoreApi } from 'zustand';
 
-import { HierarchyContext } from "./HierarchyContext";
-import { HierarchyStore } from "./HierarchyStore";
-import { createHierarchyStore } from "./createHierarchyStore";
+import { HierarchyContext } from './HierarchyContext';
+import { HierarchyStore } from './HierarchyStore';
+import { createHierarchyStore } from './createHierarchyStore';
 
 export const HierarchyProvider = ({ children }: PropsWithChildren) => {
   const storeRef = useRef<StoreApi<HierarchyStore>>();
