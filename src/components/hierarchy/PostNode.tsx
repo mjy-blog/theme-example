@@ -8,7 +8,7 @@ export interface PostNodeProps {
 export function PostNode({ slug, title }: PostNodeProps) {
   return (
     <li>
-      <Link href={`/posts/${slug}`}>{title}</Link>
+      <Link href={`/posts/${slug}/`}>{title}</Link>
     </li>
   );
 }

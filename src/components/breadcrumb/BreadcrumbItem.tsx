@@ -8,7 +8,11 @@ export interface BreadcrumbItemProps {
 
 export function BreadcrumbItem({ categories, index }: BreadcrumbItemProps) {
   const to = useMemo(
-    () => `/categories/${categories.slice(0, index + 1).join('/')}`,
+    () =>
+      `/categories/${categories
+        .slice(0, index + 1)
+        .map((segment) => '/' + segment)
+        .join('')}/`,
     [categories, index],
   );
 

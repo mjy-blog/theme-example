@@ -48,7 +48,13 @@ interface SubCategoryNodeProps {
 function SubCategoryNode({ name, category }: SubCategoryNodeProps) {
   return (
     <li>
-      <Link href={`/categories/${category.join('/')}/${name}`}>{name}</Link>
+      <Link
+        href={`/categories${category
+          .map((segment) => '/' + segment)
+          .join('')}/${name}/`}
+      >
+        {name}
+      </Link>
     </li>
   );
 }
@@ -61,7 +67,7 @@ interface SubPostNodeProps {
 function SubPostNode({ slug, title }: SubPostNodeProps) {
   return (
     <li>
-      <Link href={`/posts/${slug}`}>{title}</Link>
+      <Link href={`/posts/${slug}/`}>{title}</Link>
     </li>
   );
 }
@@ -76,7 +82,7 @@ function RelatedTag({ tag, score, maxScore }: RelatedTagProps) {
   return (
     <li>
       <Link
-        href={`/tags/${tag}`}
+        href={`/tags/${tag}/`}
         style={{ color: `rgb(${score / maxScore}, 0, 1)` }}
       >
         {tag}

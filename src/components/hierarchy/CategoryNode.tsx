@@ -40,7 +40,7 @@ export function CategoryNode({ current, name, sub }: CategoryNodeProps) {
         <Link
           href={`/categories${current
             .map((segment) => '/' + segment)
-            .join('')}/${name}`}
+            .join('')}/${name}/`}
         >
           {name}
         </Link>

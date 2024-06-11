@@ -26,7 +26,7 @@ export async function PostPage({
         <p>
           {'tags:'}
           {attributes.tags.map((tag) => (
-            <Link href={`/tags/${tag}`} key={tag}>
+            <Link href={`/tags/${tag}/`} key={tag}>
               {tag}
             </Link>
           ))}
