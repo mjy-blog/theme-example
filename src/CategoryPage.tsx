@@ -11,7 +11,7 @@ export interface CategoryPageProps {
   category: string[];
   hierarchy: Hierarchy;
   sub: CategorySubNode[];
-  relatedTags: [name: string, score: number][];
+  relatedTags: [tag: string, score: number][];
   posts: Post<PostAttribute>[];
 }
 
