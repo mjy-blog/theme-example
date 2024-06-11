@@ -1,19 +1,8 @@
-import {
-  CategorySubNode,
-  Hierarchy,
-  Post,
-  PostAttribute,
-} from '@mjy-blog/theme-lib';
+import { CategoryPageProps } from '@mjy-blog/theme-lib';
 import Link from 'next/link';
-import { MergeHierarchy } from './stores/hierarchy/MergeHierarchy';
 
-export interface CategoryPageProps {
-  category: string[];
-  hierarchy: Hierarchy;
-  sub: CategorySubNode[];
-  relatedTags: [tag: string, score: number][];
-  posts: Post<PostAttribute>[];
-}
+import { CustomPostAttribute } from './CustomPostAttribute';
+import { MergeHierarchy } from './stores/hierarchy/MergeHierarchy';
 
 export function CategoryPage({
   category,
@@ -21,7 +10,7 @@ export function CategoryPage({
   sub,
   relatedTags,
   posts,
-}: CategoryPageProps) {
+}: CategoryPageProps<CustomPostAttribute>) {
   return (
     <>
       <MergeHierarchy toMerge={hierarchy} />

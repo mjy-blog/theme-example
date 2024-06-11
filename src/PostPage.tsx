@@ -1,17 +1,15 @@
-import { ComponentType } from 'react';
+import { PostPageProps } from '@mjy-blog/theme-lib';
 
+import { CustomPostAttribute } from './CustomPostAttribute';
 import { Comment } from './components/Comment';
 import { PostAttributes } from './components/PostAttributes';
 import { Breadcrumb } from './components/breadcrumb/Breadcrumb';
-import { ArticleAttributes } from './types/ArticleAttributes';
 
-export interface PostPageProps {
-  attributes: ArticleAttributes;
-  MDXContent: ComponentType;
-  slug: string;
-}
-
-export function PostPage({ attributes, MDXContent, slug }: PostPageProps) {
+export function PostPage({
+  attributes,
+  MDXContent,
+  slug,
+}: PostPageProps<CustomPostAttribute>) {
   return (
     <>
       <main className="post-main mx-auto max-w-[740px] min-w-0">

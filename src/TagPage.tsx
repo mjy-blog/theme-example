@@ -1,19 +1,13 @@
-import { Post, PostAttribute } from '@mjy-blog/theme-lib';
+import { TagPageProps } from '@mjy-blog/theme-lib';
 import Link from 'next/link';
-
-export interface TagPageProps {
-  tag: string;
-  relatedCategories: [category: string[], score: number][];
-  relatedTags: [tag: string, score: number][];
-  posts: Post<PostAttribute>[];
-}
+import { CustomPostAttribute } from './CustomPostAttribute';
 
 export function TagPage({
   tag,
   relatedCategories,
   relatedTags,
   posts,
-}: TagPageProps) {
+}: TagPageProps<CustomPostAttribute>) {
   return (
     <>
       <main>
