@@ -1,10 +1,10 @@
 'use client';
 
+import { CustomPostAttribute } from '../CustomPostAttribute';
 import { useDateTimeRepresentation } from '../hooks/useDateTimeRepresentation';
-import { ArticleAttributes } from '../types/ArticleAttributes';
 
 export interface PostAttributesProps {
-  attributes: ArticleAttributes;
+  attributes: CustomPostAttribute;
 }
 
 export function PostAttributes({ attributes }: PostAttributesProps) {
