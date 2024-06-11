@@ -32,7 +32,7 @@ main.post-main {
     font-size: 26px;
     font-weight: 700;
     padding: 0;
-    margin: 56px 0 -13px -1.883px;
+    margin: 56px 0 13px -1.883px;
     text-align: left;
     line-height: 34.5px;
     letter-spacing: -0.45px;
@@ -60,6 +60,36 @@ main.post-main {
 
     .dark & {
       background-color: darkblue;
+    }
+  }
+
+  code {
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(27, 31, 35, 0.05);
+    border-radius: 3px;
+
+    .dark & {
+      background-color: rgba(228, 224, 220, 0.15);
+    }
+  }
+
+  pre {
+    word-wrap: normal;
+  }
+
+  pre > code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+
+    .dark & {
+      background-color: transparent;
     }
   }
 
@@ -91,5 +121,9 @@ main.post-main {
     list-style-type: lower-latin;
     list-style-position: inside;
     margin-left: 15px;
+  }
+
+  .footnotes > ol > li > p {
+    display: inline-block;
   }
 }

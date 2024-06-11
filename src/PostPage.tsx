@@ -23,14 +23,14 @@ export async function PostPage({
         <h1>{attributes.title}</h1>
         <PostAttributes attributes={attributes} />
         <MDXContent />
-        <p>
-          {'tags:'}
+        <div className="flex gap-1">
+          <p>{'tags:'}</p>
           {attributes.tags.map((tag) => (
             <Link href={`/tags/${tag}/`} key={tag}>
               {tag}
             </Link>
           ))}
-        </p>
+        </div>
         <Comment slug={slug} />
       </main>
       <div className="hidden tablet:block tablet:w-[30%] desktop:w-[20%]">
