@@ -1,5 +1,6 @@
 import { PostPageProps } from '@mjy-blog/theme-lib';
 
+import Link from 'next/link';
 import { CustomPostAttribute } from './CustomPostAttribute';
 import { Comment } from './components/Comment';
 import { PostAttributes } from './components/PostAttributes';
@@ -17,6 +18,14 @@ export function PostPage({
         <h1>{attributes.title}</h1>
         <PostAttributes attributes={attributes} />
         <MDXContent />
+        <p>
+          {'tags:'}
+          {attributes.tags.map((tag) => (
+            <Link href={`/tags/${tag}`} key={tag}>
+              {tag}
+            </Link>
+          ))}
+        </p>
         <Comment slug={slug} />
       </main>
       <div className="hidden tablet:block tablet:w-[30%] desktop:w-[20%]">
