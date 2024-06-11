@@ -45,12 +45,15 @@ export function CategoryNode({ current, name, sub }: CategoryNodeProps) {
           {name}
         </Link>
       </p>
-      {opened &&
-        (sub ? (
-          <Hierarchy current={current} name={name} sub={sub} />
-        ) : (
-          <span>loading...</span>
-        ))}
+      {opened && (
+        <div className="pl-4">
+          {sub ? (
+            <Hierarchy current={current} name={name} sub={sub} />
+          ) : (
+            <span>loading...</span>
+          )}
+        </div>
+      )}
     </li>
   );
 }
