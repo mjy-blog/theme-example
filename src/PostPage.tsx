@@ -23,7 +23,7 @@ export async function PostPage({
         <h1>{attributes.title}</h1>
         <PostAttributes attributes={attributes} />
         <MDXContent />
-        <div className="flex gap-1">
+        <div className="flex flex-wrap gap-1">
           <p>{'tags:'}</p>
           {attributes.tags.map((tag) => (
             <Link href={`/tags/${tag}/`} key={tag}>
