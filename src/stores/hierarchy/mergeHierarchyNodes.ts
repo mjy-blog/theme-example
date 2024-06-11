@@ -1,6 +1,6 @@
 'use client';
 
-import { HierarchyNode } from './HierarchyState';
+import { HierarchyNode } from '@mjy-blog/theme-lib';
 
 export function mergeHierarchyNodes(
   nodes: HierarchyNode[],

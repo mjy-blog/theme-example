@@ -4,6 +4,7 @@
   "dependencies": {
     "@-ft/mode-next": "^0.1.6",
     "@giscus/react": "^3.0.0",
+    "@mjy-blog/theme-lib": "^0.1.1",
     "@types/node": "^20.12.12",
     "@types/react": "^18.3.3",
     "autoprefixer": "^10.4.19",

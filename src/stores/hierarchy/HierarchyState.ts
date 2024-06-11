@@ -1,8 +1,4 @@
-export type HierarchyNode = [name: string, value: HierarchyValue];
-
-export type HierarchyValue =
-  | { type: 'post' }
-  | { type: 'category'; sub?: HierarchyNode[] };
+import { HierarchyNode } from '@mjy-blog/theme-lib';
 
 export interface HierarchyState {
   nodes: HierarchyNode[];

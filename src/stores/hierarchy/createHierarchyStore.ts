@@ -1,6 +1,6 @@
+import { HierarchyNode } from '@mjy-blog/theme-lib';
 import { createStore } from 'zustand';
 
-import { HierarchyNode } from './HierarchyState';
 import { HierarchyStore } from './HierarchyStore';
 import { mergeHierarchyNodes } from './mergeHierarchyNodes';
 
