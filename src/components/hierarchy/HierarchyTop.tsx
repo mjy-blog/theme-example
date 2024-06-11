@@ -8,8 +8,6 @@ const emptyArray = [] as [];
 export function HierarchyTop() {
   const nodes = useHierarchy(({ nodes }) => nodes);
 
-  console.log({ nodes });
-
   return (
     <ul>
       {nodes.map((node) => (
