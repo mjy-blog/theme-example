@@ -65,13 +65,16 @@ interface RelatedCategoryProps {
 }
 
 function RelatedCategory({ category, score, maxScore }: RelatedCategoryProps) {
+  const hot = score / maxScore;
   return (
     <li>
       <Link
         href={`/categories${category
           .map((segment) => '/' + segment)
           .join('')}/`}
-        style={{ color: `rgb(${score / maxScore}, 0, 1)` }}
+        style={{
+          color: `rgb(${hot * 255}, 0, ${(1 - hot) * 255})`,
+        }}
       >
         {category.join(' / ')}
       </Link>
