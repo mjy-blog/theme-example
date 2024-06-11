@@ -5,9 +5,10 @@ import { CustomPostAttribute } from './CustomPostAttribute';
 import { Comment } from './components/Comment';
 import { PostAttributes } from './components/PostAttributes';
 import { Breadcrumb } from './components/breadcrumb/Breadcrumb';
+import { Visit } from './stores/blog/Visit';
 import { MergeHierarchy } from './stores/hierarchy/MergeHierarchy';
 
-export function PostPage({
+export async function PostPage({
   hierarchy,
   attributes,
   MDXContent,
@@ -15,6 +16,7 @@ export function PostPage({
 }: PostPageProps<CustomPostAttribute>) {
   return (
     <>
+      <Visit post={{ slug, attributes }} />
       <MergeHierarchy toMerge={hierarchy} />
       <main className="post-main mx-auto max-w-[740px] min-w-0">
         <Breadcrumb categories={attributes.categories} />

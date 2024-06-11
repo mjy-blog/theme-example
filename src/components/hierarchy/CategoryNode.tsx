@@ -1,6 +1,9 @@
 import { HierarchyNode } from '@mjy-blog/theme-lib';
 import Link from 'next/link';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+
+import { useBlog } from '../../stores/blog/useBlog';
+import { stringArrayComparator } from '../../util/stringArrayComparator';
 import { Hierarchy } from './Hierarchy';
 
 export interface CategoryNodeProps {
@@ -10,7 +13,21 @@ export interface CategoryNodeProps {
 }
 
 export function CategoryNode({ current, name, sub }: CategoryNodeProps) {
+  const currentPost = useBlog(({ currentPost }) => currentPost);
   const [opened, setOpened] = useState(false);
+
+  useEffect(() => {
+    const next = [...current, name];
+    if (
+      currentPost &&
+      stringArrayComparator(
+        currentPost.attributes.categories.slice(0, next.length),
+        next,
+      ) == 0
+    ) {
+      setOpened(true);
+    }
+  }, [current, currentPost]);
 
   const handleClick = useCallback(() => {
     setOpened((opened) => !opened);
