@@ -5,3 +5,17 @@ html:not(.dark) {
 html.dark {
   @nested-import "../../submodules/prism-themes/themes/prism-one-dark.css";
 }
+
+[data-remark-code-title="true"] {
+  margin: 0.5em 0 -1.3em;
+  padding: 0.5em 1em 0.3em;
+  width: fit-content;
+  background: #fafafa;
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+  font-size: 0.8em;
+
+  .dark & {
+    background: #282c34;
+  }
+}

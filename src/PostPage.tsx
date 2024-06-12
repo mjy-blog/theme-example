@@ -18,12 +18,12 @@ export async function PostPage({
     <>
       <Visit post={{ slug, attributes }} />
       <MergeHierarchy toMerge={hierarchy} />
-      <main className="post-main mx-auto max-w-[740px] min-w-0">
+      <main className="post-main mx-auto max-w-[740px] min-w-0 px-4 box-content">
         <Breadcrumb categories={attributes.categories} />
         <h1>{attributes.title}</h1>
         <PostAttributes attributes={attributes} />
         <MDXContent />
-        <div className="flex flex-wrap gap-1">
+        <div className="flex flex-wrap gap-1 mb-6">
           <p>{'tags:'}</p>
           {attributes.tags.map((tag) => (
             <Link href={`/tags/${tag}/`} key={tag}>
@@ -33,7 +33,7 @@ export async function PostPage({
         </div>
         <Comment slug={slug} />
       </main>
-      <div className="hidden tablet:block tablet:w-[30%] desktop:w-[20%]">
+      <div className="hidden tablet:block tablet:w-[30%] desktop:w-[25%]">
         // TODO: add TOC
       </div>
     </>

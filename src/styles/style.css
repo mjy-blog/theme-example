@@ -2,6 +2,7 @@
 
 @import "./base.css";
 @import "./prism.css";
+@import "./rehype-prism-plus.css";
 @import "./tailwind.css";
 @import "./post.css";
 @import "./fonts.css";
