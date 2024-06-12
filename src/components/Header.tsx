@@ -1,5 +1,9 @@
+'use client';
+
 import Link from 'next/link';
+
 import { ThemeModeButton } from './ThemeModeButton';
+import { Banners } from './banners/Banners';
 
 export function Header() {
   return (
@@ -15,6 +19,7 @@ export function Header() {
         </div>
       </div>
       <div className="h-[48px]" />
+      <Banners />
     </>
   );
 }
