@@ -20,7 +20,8 @@ export function mergeHierarchyNodes(
       result.set(name, value);
     }
   });
-  return Object.entries(Object.fromEntries(result.entries())).sort(([a], [b]) =>
-    a.localeCompare(b),
+  return Object.entries(Object.fromEntries(result.entries())).sort(
+    ([a, { type: aType }], [b, { type: bType }]) =>
+      aType.localeCompare(bType) || a.localeCompare(b),
   );
 }
