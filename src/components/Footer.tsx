@@ -6,7 +6,7 @@ export function Footer() {
       <div className="mx-auto max-w-[740px] min-w-0 w-full">
         <p>Copyright ©. All Rights Reserved.</p>
         <p>
-          {'See source code at GitHub: '}
+          {'View source code at GitHub: '}
           <ExternalLink href="https://github.com/mjy-blog/core">
             core
           </ExternalLink>
