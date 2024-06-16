@@ -5,6 +5,7 @@ import { CustomPostAttribute } from './CustomPostAttribute';
 import { Comment } from './components/Comment';
 import { PostAttributes } from './components/PostAttributes';
 import { Breadcrumb } from './components/breadcrumb/Breadcrumb';
+import { LoadMermaid } from './components/util/LoadMermaid';
 import { Visit } from './stores/blog/Visit';
 import { MergeHierarchy } from './stores/hierarchy/MergeHierarchy';
 
@@ -36,6 +37,7 @@ export async function PostPage({
       <div className="hidden tablet:block tablet:w-[30%] desktop:w-[25%]">
         // TODO: add TOC
       </div>
+      <LoadMermaid />
     </>
   );
 }
