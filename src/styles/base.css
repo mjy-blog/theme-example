@@ -16,3 +16,7 @@ html, body {
   font-size: 18px;
   font-family: 'Noto Sans KR', sans-serif;
 }
+
+* {
+  scroll-margin-top: 48px;
+}
