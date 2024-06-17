@@ -1,8 +1,14 @@
+'use client';
+
 import { CategoryPageProps } from '@mjy-blog/theme-lib';
 import Link from 'next/link';
 
+import { ModeContext } from '@-ft/mode-next';
+import { useContext } from 'react';
 import { CustomPostAttribute } from './CustomPostAttribute';
 import { MergeHierarchy } from './stores/hierarchy/MergeHierarchy';
+import { heatmapColorDark } from './util/heatmapColorDark';
+import { heatmapColorLight } from './util/heatmapColorLight';
 
 export function CategoryPage({
   category,
@@ -46,6 +52,7 @@ export function CategoryPage({
               tag={tag}
               score={score}
               maxScore={relatedTags[0][1]}
+              minScore={relatedTags[relatedTags.length - 1][1]}
             />
           ))}
         </ul>
@@ -90,15 +97,22 @@ interface RelatedTagProps {
   tag: string;
   score: number;
   maxScore: number;
+  minScore: number;
 }
 
-function RelatedTag({ tag, score, maxScore }: RelatedTagProps) {
-  const hot = score / maxScore;
+function RelatedTag({ tag, score, maxScore, minScore }: RelatedTagProps) {
+  const { theme } = useContext(ModeContext);
+
+  const hot =
+    maxScore - minScore ? (score - minScore) / (maxScore - minScore) : 0.5;
+  const [r, g, b] =
+    theme === 'dark' ? heatmapColorLight(hot) : heatmapColorDark(hot);
+
   return (
     <li
       className="inline-block rounded-md p-1 text-white"
       style={{
-        background: `rgb(${hot * 255}, 0, ${(1 - hot) * 255})`,
+        background: `rgb(${r}, ${g}, ${b})`,
       }}
     >
       <Link href={`/tags/${tag}/`}>{tag}</Link>

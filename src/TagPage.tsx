@@ -1,6 +1,12 @@
+'use client';
+
+import { ModeContext } from '@-ft/mode-next';
 import { TagPageProps } from '@mjy-blog/theme-lib';
 import Link from 'next/link';
+import { useContext } from 'react';
 import { CustomPostAttribute } from './CustomPostAttribute';
+import { heatmapColorDark } from './util/heatmapColorDark';
+import { heatmapColorLight } from './util/heatmapColorLight';
 
 export function TagPage({
   tag,
@@ -26,6 +32,7 @@ export function TagPage({
               category={category}
               score={score}
               maxScore={relatedCategories[0][1]}
+              minScore={relatedCategories[relatedCategories.length - 1][1]}
             />
           ))}
         </ul>
@@ -37,6 +44,7 @@ export function TagPage({
               tag={tag}
               score={score}
               maxScore={relatedTags[0][1]}
+              minScore={relatedTags[relatedTags.length - 1][1]}
             />
           ))}
         </ul>
@@ -62,10 +70,22 @@ interface RelatedCategoryProps {
   category: string[];
   score: number;
   maxScore: number;
+  minScore: number;
 }
 
-function RelatedCategory({ category, score, maxScore }: RelatedCategoryProps) {
-  const hot = score / maxScore;
+function RelatedCategory({
+  category,
+  score,
+  maxScore,
+  minScore,
+}: RelatedCategoryProps) {
+  const { theme } = useContext(ModeContext);
+
+  const hot =
+    maxScore - minScore ? (score - minScore) / (maxScore - minScore) : 0.5;
+  const [r, g, b] =
+    theme === 'dark' ? heatmapColorLight(hot) : heatmapColorDark(hot);
+
   return (
     <li>
       <Link
@@ -73,7 +93,7 @@ function RelatedCategory({ category, score, maxScore }: RelatedCategoryProps) {
           .map((segment) => '/' + segment)
           .join('')}/`}
         style={{
-          color: `rgb(${hot * 255}, 0, ${(1 - hot) * 255})`,
+          color: `rgb(${r}, ${g}, ${b})`,
         }}
       >
         {category.join(' / ')}
@@ -86,15 +106,22 @@ interface RelatedTagProps {
   tag: string;
   score: number;
   maxScore: number;
+  minScore: number;
 }
 
-function RelatedTag({ tag, score, maxScore }: RelatedTagProps) {
-  const hot = score / maxScore;
+function RelatedTag({ tag, score, maxScore, minScore }: RelatedTagProps) {
+  const { theme } = useContext(ModeContext);
+
+  const hot =
+    maxScore - minScore ? (score - minScore) / (maxScore - minScore) : 0.5;
+  const [r, g, b] =
+    theme === 'dark' ? heatmapColorLight(hot) : heatmapColorDark(hot);
+
   return (
     <li
       className="inline-block rounded-md p-1 text-white"
       style={{
-        background: `rgb(${hot * 255}, 0, ${(1 - hot) * 255})`,
+        background: `rgb(${r}, ${g}, ${b})`,
       }}
     >
       <Link href={`/tags/${tag}/`}>{tag}</Link>
