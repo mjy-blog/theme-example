@@ -1,11 +1,11 @@
-import { HierarchyNode, getCategory } from '@mjy-blog/theme-lib';
+import { HierarchyNode } from '@mjy-blog/theme-lib';
 import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 
 import { useBlog } from '../../stores/blog/useBlog';
-import { useHierarchy } from '../../stores/hierarchy/useHierarchy';
 import { stringArrayComparator } from '../../util/stringArrayComparator';
 import { Hierarchy } from './Hierarchy';
+import { HierarchyDynamicLoader } from './HierarchyDynamicLoader';
 
 export interface CategoryNodeProps {
   current: string[];
@@ -58,28 +58,10 @@ export function CategoryNode({ current, name, sub }: CategoryNodeProps) {
           {sub ? (
             <Hierarchy current={current} name={name} sub={sub} />
           ) : (
-            <Loader current={current} name={name} />
+            <HierarchyDynamicLoader current={current} name={name} />
           )}
         </div>
       )}
     </li>
   );
-}
-
-interface LoaderProps {
-  current: string[];
-  name: string;
-}
-
-function Loader({ current, name }: LoaderProps) {
-  const addNodes = useHierarchy(({ addNodes }) => addNodes);
-
-  useEffect(() => {
-    (async () => {
-      const category = await getCategory([...current, name], 'hierarchy');
-      addNodes(category.nodes);
-    })();
-  }, [current, name, addNodes]);
-
-  return <span>loading...</span>;
 }
