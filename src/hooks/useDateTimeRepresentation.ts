@@ -38,25 +38,25 @@ function doWork(
       delayInMs,
     );
   }
-  const elaspedTime = Date.now() - dateTime.getTime();
+  const elapsedTime = Date.now() - dateTime.getTime();
 
   // n초 전
-  if (elaspedTime < 60000) {
-    setResult(`${Math.floor(elaspedTime / 1000)}초 전`);
+  if (elapsedTime < 60000) {
+    setResult(`${Math.floor(elapsedTime / 1000)}초 전`);
     next(1000);
     return;
   }
 
   // n분 전
-  if (elaspedTime < 3600000) {
-    setResult(`${Math.floor(elaspedTime / 60000)}분 전`);
+  if (elapsedTime < 3600000) {
+    setResult(`${Math.floor(elapsedTime / 60000)}분 전`);
     next(60000);
     return;
   }
 
   // n시간 전
-  if (elaspedTime < 86400000) {
-    setResult(`${Math.floor(elaspedTime / 3600000)}시간 전`);
+  if (elapsedTime < 86400000) {
+    setResult(`${Math.floor(elapsedTime / 3600000)}시간 전`);
     next(86400000);
     return;
   }
