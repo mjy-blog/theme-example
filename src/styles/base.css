@@ -5,6 +5,11 @@ html {
   &.dark {
     background: #000;
     color: #fff;
+
+    input, select {
+      background: #fff;
+      color: #000;
+    }
   }
 }
 
