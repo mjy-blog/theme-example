@@ -39,7 +39,7 @@ function MDXContentWrapper({ divRef, MDXContext }: MDXContentWrapperProps) {
   return <div ref={divRef}>{MDXContext}</div>;
 }
 
-export async function PostPage({
+export function PostPage({
   hierarchy,
   attributes,
   MDXContent,
