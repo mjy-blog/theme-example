@@ -7,9 +7,11 @@ import { Providers } from './components/Providers';
 export function RootLayout({ children }: PropsWithChildren) {
   return (
     <Providers>
-      <Header />
-      {children}
-      <Footer />
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        {children}
+        <Footer />
+      </div>
     </Providers>
   );
 }

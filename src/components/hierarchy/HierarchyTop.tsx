@@ -9,10 +9,10 @@ export function HierarchyTop() {
   const nodes = useHierarchy(({ nodes }) => nodes);
 
   return (
-    <ul>
+    <div>
       {nodes.map((node) => (
         <HierarchyGatewayNode key={node[0]} current={emptyArray} node={node} />
       ))}
-    </ul>
+    </div>
   );
 }

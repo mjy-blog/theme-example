@@ -24,9 +24,9 @@ export function HierarchyDynamicLoader({
   }, [current, name]);
 
   return (
-    <span>
+    <>
       {children}
       {nodes && <HierarchyStaticLoader nodes={nodes} />}
-    </span>
+    </>
   );
 }
