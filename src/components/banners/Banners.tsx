@@ -19,7 +19,7 @@ export function Banners() {
   }, []);
 
   return visibleBanners.map((banner, index) => (
-    <Banner
+    <BannerItem
       key={banner.index}
       banner={banner}
       closeBanner={closeBanner}
@@ -28,13 +28,13 @@ export function Banners() {
   ));
 }
 
-interface BannerProps {
+interface BannerItemProps {
   banner: Banner;
   closeBanner: (index: number) => void;
   index: number;
 }
 
-function Banner({ banner, closeBanner, index }: BannerProps) {
+function BannerItem({ banner, closeBanner, index }: BannerItemProps) {
   const { theme } = useTheme();
 
   return (
