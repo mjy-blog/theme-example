@@ -36,7 +36,11 @@ interface MDXContentWrapperProps {
 }
 
 function MDXContentWrapper({ divRef, MDXContext }: MDXContentWrapperProps) {
-  return <div ref={divRef}>{MDXContext}</div>;
+  return (
+    <div ref={divRef} className="mdx-content-container">
+      {MDXContext}
+    </div>
+  );
 }
 
 export function PostPage({
