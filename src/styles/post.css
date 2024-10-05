@@ -1,10 +1,4 @@
 .mdx-content-container {
-  background: #fff;
-
-  .dark & {
-    background: #000;
-  }
-
   h1,
   h2,
   h3,
