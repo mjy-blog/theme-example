@@ -57,22 +57,24 @@ export function MainPage({
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {recentPosts.map((post) => (
-              <Card key={post.slug}>
-                <CardHeader>
-                  <CardTitle>{post.attributes.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    {post.attributes.excerpt}
-                  </p>
-                </CardContent>
-                <CardFooter className="flex justify-between">
-                  <Badge>{post.attributes.categories.join(' / ')}</Badge>
-                  <span className="text-sm text-muted-foreground">
-                    {post.attributes.updateTime}
-                  </span>
-                </CardFooter>
-              </Card>
+              <Link key={post.slug} href={`/posts/${post.slug}`}>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>{post.attributes.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">
+                      {post.attributes.excerpt}
+                    </p>
+                  </CardContent>
+                  <CardFooter className="flex justify-between">
+                    <Badge>{post.attributes.categories.join(' / ')}</Badge>
+                    <span className="text-sm text-muted-foreground">
+                      {post.attributes.updateTime}
+                    </span>
+                  </CardFooter>
+                </Card>
+              </Link>
             ))}
           </div>
         </section>

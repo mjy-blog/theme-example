@@ -286,19 +286,21 @@ export function TagPage({
             </h2>
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
               {posts.map((post) => (
-                <Card key={post.slug}>
-                  <CardHeader>
-                    <CardTitle>{post.attributes.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p>{post.attributes.excerpt}</p>
-                  </CardContent>
-                  <CardFooter className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">
-                      {post.attributes.updateTime}
-                    </span>
-                  </CardFooter>
-                </Card>
+                <Link key={post.slug} href={`/posts/${post.slug}`}>
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>{post.attributes.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p>{post.attributes.excerpt}</p>
+                    </CardContent>
+                    <CardFooter className="flex justify-between">
+                      <span className="text-sm text-muted-foreground">
+                        {post.attributes.updateTime}
+                      </span>
+                    </CardFooter>
+                  </Card>
+                </Link>
               ))}
             </div>
           </article>
