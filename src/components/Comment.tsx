@@ -1,16 +1,14 @@
 'use client';
 
-import { useContext } from 'react';
-
-import { ModeContext } from '@-ft/mode-next';
 import Giscus from '@giscus/react';
+import { useTheme } from 'next-themes';
 
 export interface CommentProps {
   slug: string;
 }
 
 export function Comment({ slug }: CommentProps) {
-  const { theme } = useContext(ModeContext);
+  const { theme } = useTheme();
   return (
     <Giscus
       id="comments"

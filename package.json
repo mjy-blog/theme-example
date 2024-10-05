@@ -2,7 +2,6 @@
   "name": "@this-project/articles",
   "private": true,
   "dependencies": {
-    "@-ft/mode-next": "^0.1.6",
     "@giscus/react": "^3.0.0",
     "@mjy-blog/theme-example-ui-library": "^0.1.0",
     "@mjy-blog/theme-lib": "^0.1.8",

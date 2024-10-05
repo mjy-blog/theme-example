@@ -7,6 +7,7 @@ export function createBlogStore() {
     currentPost: undefined,
     visit: (newPost) => set(() => ({ currentPost: newPost })),
     postPageMobileExpandedSection: undefined,
+    categoryPageMobileExpandedSection: undefined,
     leftAsideExpanded: true,
     rightAsideExpanded: true,
     togglePostPageMobilePostList: () =>
@@ -19,6 +20,18 @@ export function createBlogStore() {
       set(({ postPageMobileExpandedSection }) => ({
         postPageMobileExpandedSection: postPageMobileExpandedSection
           ? 'toc'
+          : undefined,
+      })),
+    toggleCategoryPageMobilePostList: () =>
+      set(({ categoryPageMobileExpandedSection }) => ({
+        categoryPageMobileExpandedSection: categoryPageMobileExpandedSection
+          ? 'postList'
+          : undefined,
+      })),
+    toggleCategoryPageMobileCategoryInfo: () =>
+      set(({ categoryPageMobileExpandedSection }) => ({
+        categoryPageMobileExpandedSection: categoryPageMobileExpandedSection
+          ? 'categoryInfo'
           : undefined,
       })),
     toggleLeftAsideExpanded: () =>
