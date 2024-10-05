@@ -12,9 +12,9 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import {
-  ComponentType,
   KeyboardEvent,
   LegacyRef,
+  ReactElement,
   useCallback,
   useEffect,
   useState,
@@ -32,15 +32,11 @@ import { MergeHierarchy } from './stores/hierarchy/MergeHierarchy';
 
 interface MDXContentWrapperProps {
   divRef: LegacyRef<HTMLDivElement>;
-  MDXContext: ComponentType;
+  MDXContext: ReactElement;
 }
 
 function MDXContentWrapper({ divRef, MDXContext }: MDXContentWrapperProps) {
-  return (
-    <div ref={divRef}>
-      <MDXContext />
-    </div>
-  );
+  return <div ref={divRef}>{MDXContext}</div>;
 }
 
 export async function PostPage({
