@@ -16,9 +16,7 @@ export function Header() {
             <span className="font-bold">Blog</span>
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
-            <Link href="/about">About</Link>
-            <Link href="/posts">Posts</Link>
-            <Link href="/contact">Contact</Link>
+            <a href="https://github.com/mjy-blog">GitHub</a>
             <ThemeSwitcher />
           </nav>
         </div>

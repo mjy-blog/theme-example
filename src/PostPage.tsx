@@ -222,7 +222,7 @@ export async function PostPage({
             <div className="container mx-auto px-4 py-4">
               <nav className="space-y-2">
                 {tocItems.map((item) => (
-                  <Link
+                  <a
                     key={item.id}
                     href={`#${item.id}`}
                     className={`block py-2 ${
@@ -231,7 +231,7 @@ export async function PostPage({
                     onClick={togglePostPageMobileToc}
                   >
                     {item.title}
-                  </Link>
+                  </a>
                 ))}
               </nav>
             </div>
@@ -355,7 +355,7 @@ export async function PostPage({
             {rightAsideExpanded && (
               <nav className="space-y-2">
                 {tocItems.map((item) => (
-                  <Link
+                  <a
                     key={item.id}
                     href={`#${item.id}`}
                     className={`block hover:underline ${
@@ -363,7 +363,7 @@ export async function PostPage({
                     }`}
                   >
                     {item.title}
-                  </Link>
+                  </a>
                 ))}
               </nav>
             )}

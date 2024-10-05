@@ -10,7 +10,7 @@ export function PostNode({ slug, title }: PostNodeProps) {
   return (
     <Link
       key={slug}
-      href={`/${slug}`}
+      href={`/posts/${slug}`}
       className="flex py-1 text-muted-foreground hover:text-foreground items-center"
     >
       <DotIcon />

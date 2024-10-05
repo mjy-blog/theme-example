@@ -61,29 +61,14 @@ export function CategoryNode({ current, name, sub }: CategoryNodeProps) {
           />
         </div>
         <Link
-          href={`/categories/${name}`}
+          href={`/categories${[...current, name]
+            .map((segment) => '/' + segment)
+            .join('')}/`}
           className="ml-1 cursor-pointer flex-grow"
         >
           {name}
         </Link>
       </div>
-      <p>
-        <button onClick={handleClick}>
-          <span
-            className={`border-8 border-transparent border-t-current inline-block w-0 h-0 transform ${
-              opened ? 'rotate-0 translate-y-1' : '-rotate-90 translate-x-1'
-            } transition-transform duration-200 ease-in-out`}
-          />
-          <span className="sr-only">{opened ? 'Collapse' : 'Expand'}</span>
-        </button>
-        <Link
-          href={`/categories${current
-            .map((segment) => '/' + segment)
-            .join('')}/${name}/`}
-        >
-          {name}
-        </Link>
-      </p>
       {opened && (
         <div
           className="ml-4"

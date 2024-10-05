@@ -86,7 +86,11 @@ export function MainPage({
           <div className="flex flex-wrap gap-4">
             {recentCategories.map((category, i) => (
               <Button key={i} variant="outline" asChild>
-                <Link href={`/categories/${category.join('/')}`}>
+                <Link
+                  href={`/categories${category
+                    .map((segment) => '/' + segment)
+                    .join('')}/`}
+                >
                   {category}
                 </Link>
               </Button>
@@ -106,7 +110,7 @@ export function MainPage({
           </p>
           <div className="flex items-center gap-4">
             <Button asChild>
-              <Link href="/rss" className="flex items-center">
+              <Link href="/rss/" className="flex items-center">
                 <RssIcon className="mr-2 h-4 w-4" />
                 Subscribe to RSS Feed
               </Link>
@@ -122,7 +126,7 @@ export function MainPage({
           </h2>
           <div className="flex flex-wrap gap-4">
             {recentTags.map((tag) => (
-              <Link key={tag} href={`/tags/${tag}`}>
+              <Link key={tag} href={`/tags/${tag}/`}>
                 <Badge variant="secondary" className="text-lg py-1 px-3">
                   #{tag}
                 </Badge>

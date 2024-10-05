@@ -186,7 +186,7 @@ export function CategoryPage({
                 <Link
                   href={`/rss/${category
                     .map((segment) => `${segment}/`)
-                    .join('')}`}
+                    .join('')}/`}
                   className="flex items-center space-x-2 text-primary hover:underline"
                 >
                   <RssIcon className="h-4 w-4" />
@@ -213,7 +213,7 @@ export function CategoryPage({
                         key={segment}
                         href={`/categories${[...category, segment]
                           .map((segment) => '/' + segment)
-                          .join('')}`}
+                          .join('')}/`}
                       >
                         <Badge variant="secondary">{segment}</Badge>
                       </Link>
