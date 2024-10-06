@@ -124,7 +124,8 @@ export function PostPage({
         <div className="md:hidden border-b h-10">
           <div className="container mx-auto px-4">
             <button
-              className="py-2 flex items-center justify-between cursor-pointer"
+              type="button"
+              className="w-full py-2 flex items-center justify-between"
               onClick={togglePostPageMobilePostList}
               aria-expanded={postPageMobileExpandedSection === 'postList'}
               aria-controls="mobile-post-list"
@@ -172,7 +173,8 @@ export function PostPage({
         <div className="border-b h-10">
           <div className="container mx-auto px-4">
             <button
-              className="py-2 flex items-center justify-between cursor-pointer"
+              type="button"
+              className="w-full py-2 flex items-center justify-between"
               onClick={togglePostPageMobileToc}
               aria-expanded={postPageMobileExpandedSection === 'toc'}
               aria-controls="mobile-toc"

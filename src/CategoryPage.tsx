@@ -83,7 +83,8 @@ export function CategoryPage({
         <div className="md:hidden border-b h-10">
           <div className="container mx-auto px-4">
             <button
-              className="py-2 flex items-center justify-between cursor-pointer"
+              type="button"
+              className="w-full py-2 flex items-center justify-between"
               onClick={toggleCategoryPageMobilePostList}
               aria-expanded={categoryPageMobileExpandedSection === 'postList'}
               aria-controls="mobile-post-list"
@@ -131,7 +132,8 @@ export function CategoryPage({
         <div className="border-b h-10">
           <div className="container mx-auto px-4">
             <button
-              className="py-2 flex items-center justify-between cursor-pointer"
+              type="button"
+              className="w-full py-2 flex items-center justify-between"
               onClick={toggleCategoryPageMobileCategoryInfo}
               aria-expanded={
                 categoryPageMobileExpandedSection === 'categoryInfo'

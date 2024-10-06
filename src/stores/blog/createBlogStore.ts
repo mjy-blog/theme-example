@@ -12,27 +12,27 @@ export function createBlogStore() {
     rightAsideExpanded: true,
     togglePostPageMobilePostList: () =>
       set(({ postPageMobileExpandedSection }) => ({
-        postPageMobileExpandedSection: postPageMobileExpandedSection
-          ? 'postList'
-          : undefined,
+        postPageMobileExpandedSection:
+          postPageMobileExpandedSection !== 'postList' ? 'postList' : undefined,
       })),
     togglePostPageMobileToc: () =>
       set(({ postPageMobileExpandedSection }) => ({
-        postPageMobileExpandedSection: postPageMobileExpandedSection
-          ? 'toc'
-          : undefined,
+        postPageMobileExpandedSection:
+          postPageMobileExpandedSection !== 'toc' ? 'toc' : undefined,
       })),
     toggleCategoryPageMobilePostList: () =>
       set(({ categoryPageMobileExpandedSection }) => ({
-        categoryPageMobileExpandedSection: categoryPageMobileExpandedSection
-          ? 'postList'
-          : undefined,
+        categoryPageMobileExpandedSection:
+          categoryPageMobileExpandedSection !== 'postList'
+            ? 'postList'
+            : undefined,
       })),
     toggleCategoryPageMobileCategoryInfo: () =>
       set(({ categoryPageMobileExpandedSection }) => ({
-        categoryPageMobileExpandedSection: categoryPageMobileExpandedSection
-          ? 'categoryInfo'
-          : undefined,
+        categoryPageMobileExpandedSection:
+          categoryPageMobileExpandedSection !== 'categoryInfo'
+            ? 'categoryInfo'
+            : undefined,
       })),
     toggleLeftAsideExpanded: () =>
       set(({ leftAsideExpanded }) => ({
