@@ -18,7 +18,7 @@ import {
   RssIcon,
 } from 'lucide-react';
 import Link from 'next/link';
-import { KeyboardEvent, useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 
 import { HierarchyTop } from './components/hierarchy/HierarchyTop';
 import { CustomPostAttribute } from './CustomPostAttribute';
@@ -53,18 +53,6 @@ export function TagPage({
   const toggleRightAsideExpanded = useBlog(
     ({ toggleRightAsideExpanded }) => toggleRightAsideExpanded,
   );
-  const handlePostListKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      toggleCategoryPageMobilePostList();
-    }
-  }, []);
-  const handleCategoryInfoKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      toggleCategoryPageMobileCategoryInfo();
-    }
-  }, []);
 
   useEffect(() => {
     if (categoryPageMobileExpandedSection) {
@@ -90,12 +78,9 @@ export function TagPage({
         {/* Mobile Post List collapsed */}
         <div className="md:hidden border-b h-10">
           <div className="container mx-auto px-4">
-            <div
+            <button
               className="py-2 flex items-center justify-between cursor-pointer"
               onClick={toggleCategoryPageMobilePostList}
-              role="button"
-              tabIndex={0}
-              onKeyDown={handlePostListKeyDown}
               aria-expanded={categoryPageMobileExpandedSection === 'postList'}
               aria-controls="mobile-post-list"
             >
@@ -108,7 +93,7 @@ export function TagPage({
                 }`}
                 aria-hidden="true"
               />
-            </div>
+            </button>
           </div>
         </div>
 
@@ -141,12 +126,9 @@ export function TagPage({
         {/* Mobile and Tablet Tag Information collapsed */}
         <div className="border-b h-10">
           <div className="container mx-auto px-4">
-            <div
+            <button
               className="py-2 flex items-center justify-between cursor-pointer"
               onClick={toggleCategoryPageMobileCategoryInfo}
-              role="button"
-              tabIndex={0}
-              onKeyDown={handleCategoryInfoKeyDown}
               aria-expanded={
                 categoryPageMobileExpandedSection === 'categoryInfo'
               }
@@ -161,7 +143,7 @@ export function TagPage({
                 }`}
                 aria-hidden="true"
               />
-            </div>
+            </button>
           </div>
         </div>
 

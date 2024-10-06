@@ -1,7 +1,7 @@
 import { HierarchyNode } from '@mjy-blog/theme-lib';
 import { ChevronRightIcon } from 'lucide-react';
 import Link from 'next/link';
-import { KeyboardEvent, useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { useBlog } from '../../stores/blog/useBlog';
 import { stringArrayComparator } from '../../util/stringArrayComparator';
@@ -34,22 +34,13 @@ export function CategoryNode({ current, name, sub }: CategoryNodeProps) {
   const handleClick = useCallback(() => {
     setOpened((opened) => !opened);
   }, []);
-  const handleKeyDown = useCallback((event: KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      setOpened((opened) => !opened);
-    }
-  }, []);
 
   return (
     <div>
       <div className="flex py-1 items-center">
-        <div
-          className="cursor-pointer p-1"
+        <button
+          className="block cursor-pointer p-1"
           onClick={handleClick}
-          onKeyDown={handleKeyDown}
-          role="button"
-          tabIndex={0}
           aria-expanded={opened}
           aria-label={`Expand ${name} category`}
         >
@@ -59,7 +50,7 @@ export function CategoryNode({ current, name, sub }: CategoryNodeProps) {
             }`}
             aria-hidden="true"
           />
-        </div>
+        </button>
         <Link
           href={`/categories${[...current, name]
             .map((segment) => '/' + segment)

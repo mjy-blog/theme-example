@@ -11,14 +11,7 @@ import {
   MenuIcon,
 } from 'lucide-react';
 import Link from 'next/link';
-import {
-  KeyboardEvent,
-  LegacyRef,
-  ReactElement,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react';
+import { LegacyRef, ReactElement, useEffect, useState } from 'react';
 
 import { CustomPostAttribute } from './CustomPostAttribute';
 import { Comment } from './components/Comment';
@@ -71,18 +64,6 @@ export function PostPage({
   const toggleRightAsideExpanded = useBlog(
     ({ toggleRightAsideExpanded }) => toggleRightAsideExpanded,
   );
-  const handlePostListKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      togglePostPageMobilePostList();
-    }
-  }, []);
-  const handleTocKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      togglePostPageMobileToc();
-    }
-  }, []);
 
   const [activeSection, setActiveSection] = useState(tocItems[0]?.id);
 
@@ -142,12 +123,9 @@ export function PostPage({
         {/* Mobile Post List collapsed */}
         <div className="md:hidden border-b h-10">
           <div className="container mx-auto px-4">
-            <div
+            <button
               className="py-2 flex items-center justify-between cursor-pointer"
               onClick={togglePostPageMobilePostList}
-              role="button"
-              tabIndex={0}
-              onKeyDown={handlePostListKeyDown}
               aria-expanded={postPageMobileExpandedSection === 'postList'}
               aria-controls="mobile-post-list"
             >
@@ -160,7 +138,7 @@ export function PostPage({
                 }`}
                 aria-hidden="true"
               />
-            </div>
+            </button>
           </div>
         </div>
 
@@ -193,12 +171,9 @@ export function PostPage({
         {/* Mobile and Tablet TOC collapsed */}
         <div className="border-b h-10">
           <div className="container mx-auto px-4">
-            <div
+            <button
               className="py-2 flex items-center justify-between cursor-pointer"
               onClick={togglePostPageMobileToc}
-              role="button"
-              tabIndex={0}
-              onKeyDown={handleTocKeyDown}
               aria-expanded={postPageMobileExpandedSection === 'toc'}
               aria-controls="mobile-toc"
             >
@@ -213,7 +188,7 @@ export function PostPage({
                 }`}
                 aria-hidden="true"
               />
-            </div>
+            </button>
           </div>
         </div>
 
