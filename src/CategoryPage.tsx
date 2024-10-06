@@ -2,13 +2,6 @@
 
 import { Badge } from '@mjy-blog/theme-example-ui-library/components/ui/badge';
 import { Button } from '@mjy-blog/theme-example-ui-library/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@mjy-blog/theme-example-ui-library/components/ui/card';
 import { cn } from '@mjy-blog/theme-example-ui-library/lib/utils';
 import { CategoryPageProps } from '@mjy-blog/theme-lib';
 import {
@@ -22,6 +15,7 @@ import Link from 'next/link';
 import { useEffect, useMemo } from 'react';
 
 import { HierarchyTop } from './components/hierarchy/HierarchyTop';
+import { PostCard } from './components/PostCard';
 import { CustomPostAttribute } from './CustomPostAttribute';
 import { useBlog } from './stores/blog/useBlog';
 import { MergeHierarchy } from './stores/hierarchy/MergeHierarchy';
@@ -291,21 +285,7 @@ export function CategoryPage({
             </h2>
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
               {posts.map((post) => (
-                <Link key={post.slug} href={`/posts/${post.slug}`}>
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>{post.attributes.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p>{post.attributes.excerpt}</p>
-                    </CardContent>
-                    <CardFooter className="flex justify-between">
-                      <span className="text-sm text-muted-foreground">
-                        {post.attributes.updateTime}
-                      </span>
-                    </CardFooter>
-                  </Card>
-                </Link>
+                <PostCard key={post.slug} post={post} />
               ))}
             </div>
           </article>

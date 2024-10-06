@@ -1,17 +1,11 @@
 import { Badge } from '@mjy-blog/theme-example-ui-library/components/ui/badge';
 import { Button } from '@mjy-blog/theme-example-ui-library/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@mjy-blog/theme-example-ui-library/components/ui/card';
 import { MainPageProps } from '@mjy-blog/theme-lib';
 import { ArrowRightIcon, BookOpenIcon, RssIcon, TagIcon } from 'lucide-react';
 import Link from 'next/link';
 
 import { HierarchyStaticLoader } from './components/hierarchy/HierarchyStaticLoader';
+import { PostCard } from './components/PostCard';
 import { CustomPostAttribute } from './CustomPostAttribute';
 
 export function MainPage({
@@ -57,24 +51,7 @@ export function MainPage({
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {recentPosts.map((post) => (
-              <Link key={post.slug} href={`/posts/${post.slug}`}>
-                <Card>
-                  <CardHeader>
-                    <CardTitle>{post.attributes.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">
-                      {post.attributes.excerpt}
-                    </p>
-                  </CardContent>
-                  <CardFooter className="flex justify-between">
-                    <Badge>{post.attributes.categories.join(' / ')}</Badge>
-                    <span className="text-sm text-muted-foreground">
-                      {post.attributes.updateTime}
-                    </span>
-                  </CardFooter>
-                </Card>
-              </Link>
+              <PostCard key={post.slug} post={post} />
             ))}
           </div>
         </section>
