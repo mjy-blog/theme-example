@@ -8,7 +8,7 @@ export interface CommentProps {
 }
 
 export function Comment({ slug }: CommentProps) {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   return (
     <Giscus
       id="comments"
@@ -21,7 +21,7 @@ export function Comment({ slug }: CommentProps) {
       reactionsEnabled="1"
       emitMetadata="0"
       inputPosition="top"
-      theme={theme}
+      theme={resolvedTheme}
       lang="ko"
       loading="lazy"
     />
